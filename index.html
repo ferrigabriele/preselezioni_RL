@@ -583,6 +583,7 @@
             Lingue: cleanValue(r.Lingue),
             Patente: cleanValue(r.Patente),
             Azienda: cleanValue(r.Azienda),
+            ModoEvasioneRichiesta: cleanValue(r.ModoEvasioneRichiesta),
             SettoreEconomicoAzienda: cleanValue(r.SettoreEconomicoAzienda),
             LinkPubblicazioneOfferta: cleanValue(r.LinkPubblicazioneOfferta),
             ...normalizeCategoriaRiserva(r.CategoriaRiserva)
@@ -1043,7 +1044,7 @@
           </td>
           <td>${formatDate(r.DataScadenza)}</td>
           <td><span class="pill">${(r.NumeroLavoratoriRichiesti || 0).toLocaleString('it-IT')}</span></td>
-          <td>${escapeHtml(r.Azienda || "n.d.")}</td>
+          <td>${escapeHtml(r.ModoEvasioneRichiesta === "Pubblicazione anonima con preselezione" ? "Pubblicazione anonima" : (r.Azienda || "n.d."))}</td>
         </tr>
       `;
       }).join("");
